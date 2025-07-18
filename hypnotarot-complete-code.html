@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hypnotarot - Cartes Mystiques avec Technologie NFC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+      window.SnipcartSettings = {
+        publicApiKey: "YOUR_API_KEY",
+        loadStrategy: "on-user-interaction",
+      };
+
+      (function(){var c,d;(d=(c=window.SnipcartSettings).version)!=null||(c.version="3.0");var s,S;(S=(s=window.SnipcartSettings).timeoutDuration)!=null||(s.timeoutDuration=2750);var l,p;(p=(l=window.SnipcartSettings).domain)!=null||(l.domain="cdn.snipcart.com");var w,u;(u=(w=window.SnipcartSettings).protocol)!=null||(w.protocol="https");var m,g;(g=(m=window.SnipcartSettings).loadCSS)!=null||(m.loadCSS=!0);var y=window.SnipcartSettings.version.includes("v3.0.0-ci")||window.SnipcartSettings.version!="3.0"&&window.SnipcartSettings.version.localeCompare("3.4.0",void 0,{numeric:!0,sensitivity:"base"})===-1,f=["focus","mouseover","touchmove","scroll","keydown"];window.LoadSnipcart=o;document.readyState==="loading"?document.addEventListener("DOMContentLoaded",r):r();function r(){window.SnipcartSettings.loadStrategy?window.SnipcartSettings.loadStrategy==="on-user-interaction"&&(f.forEach(function(t){return document.addEventListener(t,o)}),setTimeout(o,window.SnipcartSettings.timeoutDuration)):o()}var a=!1;function o(){if(a)return;a=!0;let t=document.getElementsByTagName("head")[0],n=document.querySelector("#snipcart"),i=document.querySelector('src[src^="'.concat(window.SnipcartSettings.protocol,"://").concat(window.SnipcartSettings.domain,'"][src$="snipcart.js"]')),e=document.querySelector('link[href^="'.concat(window.SnipcartSettings.protocol,"://").concat(window.SnipcartSettings.domain,'"][href$="snipcart.css"]'));n||(n=document.createElement("div"),n.id="snipcart",n.setAttribute("hidden","true"),document.body.appendChild(n)),h(n),i||(i=document.createElement("script"),i.src="".concat(window.SnipcartSettings.protocol,"://").concat(window.SnipcartSettings.domain,"/themes/v").concat(window.SnipcartSettings.version,"/default/snipcart.js"),i.async=!0,t.appendChild(i)),!e&&window.SnipcartSettings.loadCSS&&(e=document.createElement("link"),e.rel="stylesheet",e.type="text/css",e.href="".concat(window.SnipcartSettings.protocol,"://").concat(window.SnipcartSettings.domain,"/themes/v").concat(window.SnipcartSettings.version,"/default/snipcart.css"),t.prepend(e)),f.forEach(function(v){return document.removeEventListener(v,o)})}function h(t){!y||(t.dataset.apiKey=window.SnipcartSettings.publicApiKey,window.SnipcartSettings.addProductBehavior&&(t.dataset.configAddProductBehavior=window.SnipcartSettings.addProductBehavior),window.SnipcartSettings.modalStyle&&(t.dataset.configModalStyle=window.SnipcartSettings.modalStyle),window.SnipcartSettings.currency&&(t.dataset.currency=window.SnipcartSettings.currency),window.SnipcartSettings.templatesUrl&&(t.dataset.templatesUrl=window.SnipcartSettings.templatesUrl))}})();
+    </script>
+    <style>
+        :root {
+            --primary-color: #6a0dad;
+            --secondary-color: #1a1a2e;
+            --accent-color: #daa520;
+            --light-color: #f8f9fa;
+            --dark-color: #16213e;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8eaec 100%);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            color: var(--light-color);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--light-color), var(--accent-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 0.5rem;
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+            position: relative;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            padding: 0.5rem 0;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 5rem;
+            background: url('/api/placeholder/1600/900') center/cover no-repeat;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(0deg, rgba(26, 26, 46, 0.8) 0%, rgba(106, 13, 173, 0.7) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: var(--light-color);
+            max-width: 700px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+        }
+
+        .btn-primary:hover {
+            background-color: #c69320;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(218, 165, 32, 0.3);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--light-color);
+            margin-left: 1rem;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--light-color);
+            color: var(--primary-color);
+        }
+
+        /* Features */
+        .features {
+            padding: 5rem 0;
+            background-color: var(--light-color);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            color: var(--secondary-color);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .feature-content {
+            padding: 1.5rem;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        /* Products */
+        .products {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8eaec 100%);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-img {
+            height: 300px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .product-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-title {
+            font-size: 1.3rem;
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .product-description {
+            color: #777;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .btn-add {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: var(--light-color);
+            border: none;
+            padding: 0.8rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .btn-add:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(106, 13, 173, 0.3);
+        }
+
+        /* About */
+        .about {
+            padding: 5rem 0;
+            background-color: var(--dark-color);
+            color: var(--light-color);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .about-img {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 5rem 0;
+            background-color: var(--light-color);
+        }
+
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .testimonial {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .testimonial-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .testimonial-content::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 10px 10px 0;
+            border-style: solid;
+            border-color: white transparent transparent;
+        }
+
+        .testimonial-author {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .author-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 3px solid var(--primary-color);
+        }
+
+        .author-name {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        /* Newsletter */
+        .newsletter {
+            padding: 3rem 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--light-color);
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            flex-grow: 1;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            font-size: 1rem;
+        }
+
+        .newsletter-btn {
+            padding: 0 1.5rem;
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+            border: none;
+            border-radius: 0 30px 30px 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .newsletter-btn:hover {
+            background-color: #c69320;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--light-color);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        .footer-col p {
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--accent-color);
+            padding-left: 5px;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info i {
+            margin-right: 1rem;
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 991px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .about-content {
+                flex-direction: column;
+                gap: 2rem;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: var(--secondary-color);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 2rem;
+                transition: var(--transition);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .btn {
+                padding: 0.7rem 1.5rem;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-input {
+                border-radius: 30px;
+                margin-bottom: 1rem;
+            }
+
+            .newsletter-btn {
+                border-radius: 30px;
+                padding: 0.8rem;
+            }
+        }
+
+        @media screen and (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <img src="logo-hypnotarot.png" alt="Hypnotarot" style="height: 40px; width: auto;">
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#home">Accueil</a></li>
+                    <li><a href="#products">Boutique</a></li>
+                    <li><a href="#about">À propos</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#" class="snipcart-checkout"><i class="fas fa-shopping-cart"></i> Panier (<span class="snipcart-items-count">0</span>)</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Découvrez Hypnotarot</h1>
+                <p>Explorez l'univers mystique des lames Hypnotarot, conçues pour vous guider à travers les mystères de l'inconscient et révéler les vérités cachées de votre existence. L'Étoile est maintenant disponible, tandis que La Lune et Le Soleil arrivent bientôt en précommande.</p>
+                <p style="font-weight: bold; color: var(--accent-color); margin-top: 1rem;">L'Étoile est disponible dès maintenant ! Découvrez la première carte de notre collection révolutionnaire.</p>
+                <div class="cta-buttons">
+                    <a href="#products" class="btn btn-primary">Découvrir les cartes</a>
+                    <a href="#about" class="btn btn-outline">En savoir plus</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Concept -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Une Expérience Immersive Unique</h2>
+                <p>Découvrez un concept révolutionnaire alliant la beauté tactile du bois et la puissance de l'hypnose audio avec la technologie NFC.</p>
+            </div>
+            
+            <div class="about-content" style="margin-bottom: 3rem;">
+                <div class="about-img">
+                    <img src="/api/placeholder/800/600" alt="Concept Hypnotarot">
+                </div>
+                <div class="about-text">
+                    <h2>L'Alchimie du Bois et du Numérique</h2>
+                    <p>Chaque lame Hypnotarot est une œuvre d'art sculptée dans un bois noble et précieux, offrant une connexion authentique et chaleureuse à l'énergie de la terre. Ces cartes ne sont pas de simples objets, mais des portails vers votre inconscient.</p>
+                    <p>En approchant simplement votre smartphone de la puce NFC intégrée discrètement dans chaque lame, vous êtes immédiatement transporté vers une séance d'hypnose audio personnalisée, spécifiquement conçue pour canaliser les bienfaits et l'énergie particulière de cette lame.</p>
+                    <p>Cette fusion entre l'objet tangible et l'expérience numérique crée un rituel puissant qui amplifie le message et les vibrations thérapeutiques de chaque arcane, tout en vous offrant un chemin d'apprentissage vers la maîtrise du tarot traditionnel.</p>
+                </div>
+            </div>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <img src="/api/placeholder/600/400" alt="Cartes en Bois" class="feature-img">
+                    <div class="feature-content">
+                        <h3 class="feature-title">Lames en Bois Précieux</h3>
+                        <p>Chaque carte est méticuleusement sculptée dans du bois noble, offrant une connexion sensorielle unique avec ses symboles et son énergie.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <img src="/api/placeholder/600/400" alt="Scan et Hypnose" class="feature-img">
+                    <div class="feature-content">
+                        <h3 class="feature-title">Technologie NFC Révolutionnaire</h3>
+                        <p>Approchez simplement votre smartphone de la carte pour accéder instantanément à une séance d'hypnose guidée qui vous connecte aux bienfaits spécifiques de l'arcane.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <img src="/api/placeholder/600/400" alt="Bienfaits Ciblés" class="feature-img">
+                    <div class="feature-content">
+                        <h3 class="feature-title">Interprétation des Arcanes</h3>
+                        <p>Chaque lame vous donne accès à une interprétation détaillée qui vous guide dans la compréhension profonde de sa symbolique et vous aide à maîtriser progressivement l'art du tarot des 22 arcanes majeurs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nos Lames Hypnotarot en Bois</h2>
+                <p>Découvrez notre collection de lames Hypnotarot sculptées en bois avec technologie NFC intégrée.</p>
+            </div>
+            
+            <div class="product-grid">
+                <!-- L'Étoile - Disponible -->
+                <div class="product-card">
+                    <img src="/api/placeholder/600/800" alt="L'Étoile" class="product-img">
+                    <div class="product-content">
+                        <h3 class="product-title">L'Étoile</h3>
+                        <p class="product-price">39,90 € <span style="font-size: 0.8rem; font-weight: normal; color: #10b981;">✓ Disponible</span></p>
+                        <p class="product-description">Symbole d'espoir et de renouveau, cette lame en bois vous guide à travers les moments d'obscurité vers la lumière. Sa séance d'hypnose associée active la confiance en l'avenir et l'inspiration créative.</p>
+                        <p style="font-style: italic; margin-top: 0.5rem; color: var(--primary-color);">Inclut la lame en bois sculptée avec NFC, l'accès illimité à la séance audio d'hypnose et l'interprétation détaillée de l'arcane.</p>
+                        <button class="btn-add snipcart-add-item"
+                            data-item-id="etoile"
+                            data-item-name="L'Étoile"
+                            data-item-price="39.90"
+                            data-item-url="/"
+                            data-item-description="Lame en bois avec technologie NFC intégrée - Accès à la séance d'hypnose et interprétation"
+                            data-item-image="/api/placeholder/600/800">
+                            Ajouter au panier
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- La Lune - Précommande -->
+                <div class="product-card">
+                    <img src="/api/placeholder/600/800" alt="La Lune" class="product-img">
+                    <div class="product-content">
+                        <h3 class="product-title">La Lune</h3>
+                        <p class="product-price">39,90 € <span style="font-size: 0.8rem; font-weight: normal; color: var(--primary-color);">(Précommande)</span></p>
+                        <p class="product-description">Symbole des mystères et de l'inconscient, la Lune vous guide à travers les illusions pour révéler les vérités cachées. Sa séance d'hypnose développe l'intuition et l'acceptation des aspects sombres de votre personnalité.</p>
+                        <p style="font-style: italic; margin-top: 0.5rem; color: var(--primary-color);">Précommande - Inclut la lame en bois sculptée avec NFC, l'accès illimité à la séance audio d'hypnose et l'interprétation détaillée de l'arcane.</p>
+                        <button class="btn-add snipcart-add-item"
+                            data-item-id="lune"
+                            data-item-name="La Lune (Précommande)"
+                            data-item-price="39.90"
+                            data-item-url="/"
+                            data-item-description="Prévente - Lame en bois avec technologie NFC intégrée - Accès à la séance d'hypnose et interprétation"
+                            data-item-image="/api/placeholder/600/800">
+                            Précommander
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Le Soleil - Précommande -->
+                <div class="product-card">
+                    <img src="/api/placeholder/600/800" alt="Le Soleil" class="product-img">
+                    <div class="product-content">
+                        <h3 class="product-title">Le Soleil</h3>
+                        <p class="product-price">39,90 € <span style="font-size: 0.8rem; font-weight: normal; color: var(--primary-color);">(Précommande)</span></p>
+                        <p class="product-description">Incarnation de la joie et de la vitalité, cette lame en bois illumine votre quotidien. La séance d'hypnose du Soleil vous connecte à votre énergie vitale, renforce votre estime de soi et stimule votre rayonnement personnel.</p>
+                        <p style="font-style: italic; margin-top: 0.5rem; color: var(--primary-color);">Précommande - Inclut la lame en bois sculptée avec NFC, l'accès illimité à la séance audio d'hypnose et l'interprétation détaillée de l'arcane.</p>
+                        <button class="btn-add snipcart-add-item"
+                            data-item-id="soleil"
+                            data-item-name="Le Soleil (Précommande)"
+                            data-item-price="39.90"
+                            data-item-url="/"
+                            data-item-description="Prévente - Lame en bois avec technologie NFC intégrée - Accès à la séance d'hypnose et interprétation"
+                            data-item-image="/api/placeholder/600/800">
+                            Précommander
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Information sur les précommandes -->
+            <div style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); padding: 1.5rem; border-radius: 10px; margin-top: 2rem; color: white; text-align: center;">
+                <h3 style="color: var(--accent-color); margin-bottom: 0.8rem;">Prochaines sorties - La Lune et Le Soleil</h3>
+                <p>Nos prochaines lames Hypnotarot seront disponibles sous 3-4 semaines. En précommandant maintenant, vous serez parmi les premiers à les recevoir dès leur sortie.</p>
+                <p style="margin-top: 0.8rem; font-weight: bold;">Livraison estimée : 3-4 semaines pour les précommandes.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Coming Soon -->
+    <section class="features" style="background: linear-gradient(135deg, #f5f7fa 0%, #e8eaec 100%);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Prochaines Lames en Développement</h2>
+                <p>Notre collection complète d'Hypnotarot est en cours de développement. Inscrivez-vous à notre newsletter pour être informé des prochaines sorties.</p>
+            </div>
+            <div class="feature-card" style="max-width: 600px; margin: 0 auto;">
+                <img src="/api/placeholder/600/400" alt="Collection complète en développement" class="feature-img">
+                <div class="feature-content">
+                    <h3 class="feature-title">Collection complète des 22 Arcanes Majeurs</h3>
+                    <p>Notre équipe travaille actuellement sur la collection complète d'Hypnotarot qui comprendra les 22 arcanes majeurs du tarot, chacune conçue pour activer différentes dimensions de votre conscience avec la technologie NFC révolutionnaire.</p>
+                    <p style="margin-top: 1rem;"><a href="#newsletter" class="btn btn-primary">Être notifié des sorties</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="/api/placeholder/800/600" alt="Notre histoire">
+                </div>
+                <div class="about-text">
+                    <h2>Notre Histoire</h2>
+                    <p>Hypnotarot est né d'une fusion entre l'art contemporain, les pratiques divinatoires traditionnelles et les technologies innovantes. Inspirés par les états de conscience modifiés et les motifs hypnotiques, nous avons créé un outil unique pour explorer les profondeurs de l'esprit.</p>
+                    <p>Chaque carte est conçue pour activer différentes zones de votre conscience grâce à la technologie NFC intégrée, ouvrant ainsi des canaux de perception habituellement inaccessibles dans l'état de veille ordinaire.</p>
+                    <p>Notre mission est de vous aider à accéder à votre sagesse intérieure et à révéler les vérités cachées qui guideront vos choix de vie, en combinant l'authenticité du bois sculpté et la modernité de la technologie sans contact.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ce que nos clients disent</h2>
+                <p>Découvrez les expériences transformatrices vécues par les utilisateurs d'Hypnotarot.</p>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"Les cartes Hypnotarot ont complètement transformé ma pratique méditative. Les designs sont non seulement magnifiques mais la technologie NFC rend l'expérience incroyablement fluide. Un outil précieux pour mon développement personnel."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="/api/placeholder/200/200" alt="Sophie L." class="author-img">
+                        <span class="author-name">Sophie L.</span>
+                        <span class="author-title">Praticienne en hypnose</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter" id="newsletter">
+        <div class="container">
+            <h2>Restez informé</h2>
+            <p>Inscrivez-vous à notre newsletter pour recevoir en priorité les annonces de nouvelles lames Hypnotarot, des offres exclusives et être informé des prochaines sorties.</p>
+            <form class="newsletter-form" id="notification-form">
+                <input type="email" placeholder="Votre adresse email" class="newsletter-input" required>
+                <button type="submit" class="newsletter-btn">S'inscrire</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Hypnotarot</h3>
+                    <p>Des cartes mystiques modernes avec technologie NFC pour explorer les profondeurs de votre conscience et révéler votre vérité intérieure.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Liens Rapides</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Accueil</a></li>
+                        <li><a href="#products">Boutique</a></li>
+                        <li><a href="#about">À propos</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contactez-nous</h3>
+                    <div class="contact-info">
+                        <i class="fas fa-envelope"></i>
+                        <p>joffrey66@gmail.com</p>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-phone"></i>
+                        <p>+33 (0)6 81 31 66 22</p>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Prades, France</p>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Hypnotarot. Tous droits réservés. <span style="font-weight: bold; color: var(--accent-color);">Brevet déposé FR2503190 • Marque déposée FR5157600</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                navLinks.classList.remove('active');
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Newsletter Form
+        const newsletterForm = document.querySelector('.newsletter-form');
+        
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input').value;
+            
+            // Affichage du message de confirmation
+            const container = document.querySelector('.newsletter .container');
+            const currentContent = container.innerHTML;
+            
+            // Remplacer le contenu par un message de confirmation
+            container.innerHTML = `
+                <div class="confirmation-message" style="text-align: center;">
+                    <i class="fas fa-check-circle" style="font-size: 3rem; margin-bottom: 1rem; color: var(--accent-color);"></i>
+                    <h2>Merci pour votre inscription!</h2>
+                    <p>Vous recevrez désormais en priorité toutes les informations concernant les nouvelles lames Hypnotarot à l'adresse: <strong>${email}</strong></p>
+                    <button class="btn btn-primary" style="margin-top: 1.5rem;" id="back-btn">Retour au site</button>
+                </div>
+            `;
+            
+            // Rétablir le formulaire après un clic sur le bouton retour
+            document.getElementById('back-btn').addEventListener('click', function() {
+                container.innerHTML = currentContent;
+                // Réinitialiser les événements
+                const newForm = container.querySelector('.newsletter-form');
+                newForm.addEventListener('submit', newsletterForm.onsubmit);
+            });
+            
+            // Ici vous intégreriez l'appel à votre service d'email marketing
+            console.log(`Email inscrit: ${email}`);
+            
+            // Réinitialiser le formulaire
+            this.reset();
+        });
+    </script>
+    
+    <!-- Div Snipcart requis -->
+    <div id="snipcart" data-config-modal-style="side" data-currency="eur" data-customer-data-method="localstorage" hidden></div>
+</body>
+</html>
