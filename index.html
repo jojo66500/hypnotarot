@@ -5,14 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hypnotarot - Cartes Mystiques avec Technologie NFC</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script>
-      window.SnipcartSettings = {
-        publicApiKey: "YOUR_API_KEY",
-        loadStrategy: "on-user-interaction",
-      };
-
-      (function(){var c,d;(d=(c=window.SnipcartSettings).version)!=null||(c.version="3.0");var s,S;(S=(s=window.SnipcartSettings).timeoutDuration)!=null||(s.timeoutDuration=2750);var l,p;(p=(l=window.SnipcartSettings).domain)!=null||(l.domain="cdn.snipcart.com");var w,u;(u=(w=window.SnipcartSettings).protocol)!=null||(w.protocol="https");var m,g;(g=(m=window.SnipcartSettings).loadCSS)!=null||(m.loadCSS=!0);var y=window.SnipcartSettings.version.includes("v3.0.0-ci")||window.SnipcartSettings.version!="3.0"&&window.SnipcartSettings.version.localeCompare("3.4.0",void 0,{numeric:!0,sensitivity:"base"})===-1,f=["focus","mouseover","touchmove","scroll","keydown"];window.LoadSnipcart=o;document.readyState==="loading"?document.addEventListener("DOMContentLoaded",r):r();function r(){window.SnipcartSettings.loadStrategy?window.SnipcartSettings.loadStrategy==="on-user-interaction"&&(f.forEach(function(t){return document.addEventListener(t,o)}),setTimeout(o,window.SnipcartSettings.timeoutDuration)):o()}var a=!1;function o(){if(a)return;a=!0;let t=document.getElementsByTagName("head")[0],n=document.querySelector("#snipcart"),i=document.querySelector('src[src^="'.concat(window.SnipcartSettings.protocol,"://").concat(window.SnipcartSettings.domain,'"][src$="snipcart.js"]')),e=document.querySelector('link[href^="'.concat(window.SnipcartSettings.protocol,"://").concat(window.SnipcartSettings.domain,'"][href$="snipcart.css"]'));n||(n=document.createElement("div"),n.id="snipcart",n.setAttribute("hidden","true"),document.body.appendChild(n)),h(n),i||(i=document.createElement("script"),i.src="".concat(window.SnipcartSettings.protocol,"://").concat(window.SnipcartSettings.domain,"/themes/v").concat(window.SnipcartSettings.version,"/default/snipcart.js"),i.async=!0,t.appendChild(i)),!e&&window.SnipcartSettings.loadCSS&&(e=document.createElement("link"),e.rel="stylesheet",e.type="text/css",e.href="".concat(window.SnipcartSettings.protocol,"://").concat(window.SnipcartSettings.domain,"/themes/v").concat(window.SnipcartSettings.version,"/default/snipcart.css"),t.prepend(e)),f.forEach(function(v){return document.removeEventListener(v,o)})}function h(t){!y||(t.dataset.apiKey=window.SnipcartSettings.publicApiKey,window.SnipcartSettings.addProductBehavior&&(t.dataset.configAddProductBehavior=window.SnipcartSettings.addProductBehavior),window.SnipcartSettings.modalStyle&&(t.dataset.configModalStyle=window.SnipcartSettings.modalStyle),window.SnipcartSettings.currency&&(t.dataset.currency=window.SnipcartSettings.currency),window.SnipcartSettings.templatesUrl&&(t.dataset.templatesUrl=window.SnipcartSettings.templatesUrl))}})();
-    </script>
     <style>
         :root {
             --primary-color: #6a0dad;
@@ -642,10 +634,9 @@
                 </a>
                 <ul class="nav-links">
                     <li><a href="#home">Accueil</a></li>
-                    <li><a href="#products">Boutique</a></li>
+                    <li><a href="#products">Collection</a></li>
                     <li><a href="#about">À propos</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li><a href="#" class="snipcart-checkout"><i class="fas fa-shopping-cart"></i> Panier (<span class="snipcart-items-count">0</span>)</a></li>
                 </ul>
                 <div class="hamburger">
                     <i class="fas fa-bars"></i>
@@ -659,10 +650,14 @@
         <div class="container">
             <div class="hero-content">
                 <h1>Découvrez Hypnotarot</h1>
-                <p>Explorez l'univers mystique des lames Hypnotarot, conçues pour vous guider à travers les mystères de l'inconscient et révéler les vérités cachées de votre existence. L'Étoile est maintenant disponible, tandis que La Lune et Le Soleil arrivent bientôt en précommande.</p>
-                <p style="font-weight: bold; color: var(--accent-color); margin-top: 1rem;">L'Étoile est disponible dès maintenant ! Découvrez la première carte de notre collection révolutionnaire.</p>
+                <p>Explorez l'univers mystique des lames Hypnotarot, conçues pour vous guider à travers les mystères de l'inconscient et révéler les vérités cachées de votre existence.</p>
+                <div style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); padding: 2rem; border-radius: 15px; margin: 2rem 0; text-align: center;">
+                    <h2 style="color: var(--accent-color); font-size: 2.5rem; margin-bottom: 1rem;">🚀 BIENTÔT DISPONIBLE</h2>
+                    <p style="font-size: 1.3rem; font-weight: bold; margin-bottom: 1rem;">Notre boutique en ligne ouvre très prochainement !</p>
+                    <p style="font-size: 1.1rem;">Inscrivez-vous à notre newsletter pour être informé en priorité de l'ouverture et recevoir des offres exclusives de lancement.</p>
+                </div>
                 <div class="cta-buttons">
-                    <a href="#products" class="btn btn-primary">Découvrir les cartes</a>
+                    <a href="#newsletter" class="btn btn-primary">Être notifié de l'ouverture</a>
                     <a href="#about" class="btn btn-outline">En savoir plus</a>
                 </div>
             </div>
@@ -679,7 +674,7 @@
             
             <div class="about-content" style="margin-bottom: 3rem;">
                 <div class="about-img">
-                    <img src="/api/placeholder/800/600" alt="Concept Hypnotarot">
+                    <img src="/api/placeholder/800/600" alt="Concept Hypnoracles">
                 </div>
                 <div class="about-text">
                     <h2>L'Alchimie du Bois et du Numérique</h2>
@@ -705,7 +700,7 @@
                     </div>
                 </div>
                 <div class="feature-card">
-                    <img src="/api/placeholder/600/400" alt="Bienfaits Ciblés" class="feature-img">
+                    <img src="/api/placeholder/600/400" alt="Interprétation des Arcanes" class="feature-img">
                     <div class="feature-content">
                         <h3 class="feature-title">Interprétation des Arcanes</h3>
                         <p>Chaque lame vous donne accès à une interprétation détaillée qui vous guide dans la compréhension profonde de sa symbolique et vous aide à maîtriser progressivement l'art du tarot des 22 arcanes majeurs.</p>
@@ -719,77 +714,71 @@
     <section class="products" id="products">
         <div class="container">
             <div class="section-title">
-                <h2>Nos Lames Hypnotarot en Bois</h2>
-                <p>Découvrez notre collection de lames Hypnotarot sculptées en bois avec technologie NFC intégrée.</p>
+                <h2>Préventes - Nos Lames Hypnoracles en Bois</h2>
+                <p>Réservez en avant-première nos trois premières lames Hypnoracles sculptées en bois, chacune donnant accès à sa propre séance d'hypnose thérapeutique.</p>
             </div>
             
+            <!-- Bannière de prévente -->
+            <div style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem; color: white; text-align: center;">
+                <h3 style="color: var(--accent-color); margin-bottom: 0.8rem;">Préventes en cours - Livraison après approbation INPI</h3>
+                <p>Nos lames Hypnoracles sont actuellement en attente d'approbation par l'Institut National de la Propriété Industrielle (INPI). En précommandant maintenant, vous serez parmi les premiers à recevoir vos lames dès leur commercialisation officielle.</p>
+                <p style="margin-top: 0.8rem; font-weight: bold;">Aucun prélèvement ne sera effectué avant la confirmation de l'INPI et l'envoi de votre commande.</p>
+            </div>
             <div class="product-grid">
-                <!-- L'Étoile - Disponible -->
                 <div class="product-card">
                     <img src="/api/placeholder/600/800" alt="L'Étoile" class="product-img">
                     <div class="product-content">
                         <h3 class="product-title">L'Étoile</h3>
-                        <p class="product-price">39,90 € <span style="font-size: 0.8rem; font-weight: normal; color: #10b981;">✓ Disponible</span></p>
+                        <p class="product-price">39,90 € <span style="font-size: 0.8rem; font-weight: normal; color: var(--primary-color);">(Prévente)</span></p>
                         <p class="product-description">Symbole d'espoir et de renouveau, cette lame en bois vous guide à travers les moments d'obscurité vers la lumière. Sa séance d'hypnose associée active la confiance en l'avenir et l'inspiration créative.</p>
-                        <p style="font-style: italic; margin-top: 0.5rem; color: var(--primary-color);">Inclut la lame en bois sculptée avec NFC, l'accès illimité à la séance audio d'hypnose et l'interprétation détaillée de l'arcane.</p>
+                        <p style="font-style: italic; margin-top: 0.5rem; color: var(--primary-color);">Précommande - Inclut la lame en bois sculptée, l'accès illimité à la séance audio d'hypnose et l'interprétation détaillée de l'arcane.</p>
                         <button class="btn-add snipcart-add-item"
                             data-item-id="etoile"
-                            data-item-name="L'Étoile"
+                            data-item-name="L'Étoile (Précommande)"
                             data-item-price="39.90"
                             data-item-url="/"
-                            data-item-description="Lame en bois avec technologie NFC intégrée - Accès à la séance d'hypnose et interprétation"
-                            data-item-image="/api/placeholder/600/800">
-                            Ajouter au panier
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- La Lune - Précommande -->
-                <div class="product-card">
-                    <img src="/api/placeholder/600/800" alt="La Lune" class="product-img">
-                    <div class="product-content">
-                        <h3 class="product-title">La Lune</h3>
-                        <p class="product-price">39,90 € <span style="font-size: 0.8rem; font-weight: normal; color: var(--primary-color);">(Précommande)</span></p>
-                        <p class="product-description">Symbole des mystères et de l'inconscient, la Lune vous guide à travers les illusions pour révéler les vérités cachées. Sa séance d'hypnose développe l'intuition et l'acceptation des aspects sombres de votre personnalité.</p>
-                        <p style="font-style: italic; margin-top: 0.5rem; color: var(--primary-color);">Précommande - Inclut la lame en bois sculptée avec NFC, l'accès illimité à la séance audio d'hypnose et l'interprétation détaillée de l'arcane.</p>
-                        <button class="btn-add snipcart-add-item"
-                            data-item-id="lune"
-                            data-item-name="La Lune (Précommande)"
-                            data-item-price="39.90"
-                            data-item-url="/"
-                            data-item-description="Prévente - Lame en bois avec technologie NFC intégrée - Accès à la séance d'hypnose et interprétation"
+                            data-item-description="Prévente - Lame en bois avec accès à la séance d'hypnose et interprétation. Livraison après approbation INPI."
                             data-item-image="/api/placeholder/600/800">
                             Précommander
                         </button>
                     </div>
                 </div>
-                
-                <!-- Le Soleil - Précommande -->
                 <div class="product-card">
                     <img src="/api/placeholder/600/800" alt="Le Soleil" class="product-img">
                     <div class="product-content">
                         <h3 class="product-title">Le Soleil</h3>
-                        <p class="product-price">39,90 € <span style="font-size: 0.8rem; font-weight: normal; color: var(--primary-color);">(Précommande)</span></p>
+                        <p class="product-price">39,90 € <span style="font-size: 0.8rem; font-weight: normal; color: var(--primary-color);">(Prévente)</span></p>
                         <p class="product-description">Incarnation de la joie et de la vitalité, cette lame en bois illumine votre quotidien. La séance d'hypnose du Soleil vous connecte à votre énergie vitale, renforce votre estime de soi et stimule votre rayonnement personnel.</p>
-                        <p style="font-style: italic; margin-top: 0.5rem; color: var(--primary-color);">Précommande - Inclut la lame en bois sculptée avec NFC, l'accès illimité à la séance audio d'hypnose et l'interprétation détaillée de l'arcane.</p>
+                        <p style="font-style: italic; margin-top: 0.5rem; color: var(--primary-color);">Précommande - Inclut la lame en bois sculptée, l'accès illimité à la séance audio d'hypnose et l'interprétation détaillée de l'arcane.</p>
                         <button class="btn-add snipcart-add-item"
                             data-item-id="soleil"
                             data-item-name="Le Soleil (Précommande)"
                             data-item-price="39.90"
                             data-item-url="/"
-                            data-item-description="Prévente - Lame en bois avec technologie NFC intégrée - Accès à la séance d'hypnose et interprétation"
+                            data-item-description="Prévente - Lame en bois avec accès à la séance d'hypnose et interprétation. Livraison après approbation INPI."
                             data-item-image="/api/placeholder/600/800">
                             Précommander
                         </button>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Information sur les précommandes -->
-            <div style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); padding: 1.5rem; border-radius: 10px; margin-top: 2rem; color: white; text-align: center;">
-                <h3 style="color: var(--accent-color); margin-bottom: 0.8rem;">Prochaines sorties - La Lune et Le Soleil</h3>
-                <p>Nos prochaines lames Hypnotarot seront disponibles sous 3-4 semaines. En précommandant maintenant, vous serez parmi les premiers à les recevoir dès leur sortie.</p>
-                <p style="margin-top: 0.8rem; font-weight: bold;">Livraison estimée : 3-4 semaines pour les précommandes.</p>
+                <div class="product-card">
+                    <img src="/api/placeholder/600/800" alt="La Tempérance" class="product-img">
+                    <div class="product-content">
+                        <h3 class="product-title">La Tempérance</h3>
+                        <p class="product-price">39,90 € <span style="font-size: 0.8rem; font-weight: normal; color: var(--primary-color);">(Prévente)</span></p>
+                        <p class="product-description">Symbole d'équilibre et d'harmonie, cette lame en bois vous guide vers la modération. Sa séance d'hypnose vous aide à apaiser les conflits intérieurs, équilibrer vos émotions et cultiver la patience dans votre vie quotidienne.</p>
+                        <p style="font-style: italic; margin-top: 0.5rem; color: var(--primary-color);">Précommande - Inclut la lame en bois sculptée, l'accès illimité à la séance audio d'hypnose et l'interprétation détaillée de l'arcane.</p>
+                        <button class="btn-add snipcart-add-item"
+                            data-item-id="temperance"
+                            data-item-name="La Tempérance (Précommande)"
+                            data-item-price="39.90"
+                            data-item-url="/"
+                            data-item-description="Prévente - Lame en bois avec accès à la séance d'hypnose et interprétation. Livraison après approbation INPI."
+                            data-item-image="/api/placeholder/600/800">
+                            Précommander
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -834,7 +823,7 @@
         <div class="container">
             <div class="section-title">
                 <h2>Ce que nos clients disent</h2>
-                <p>Découvrez les expériences transformatrices vécues par les utilisateurs d'Hypnotarot.</p>
+                <p>Découvrez les expériences transformatrices vécues par les utilisateurs des Hypnoracles.</p>
             </div>
             <div class="testimonial-slider">
                 <div class="testimonial">
@@ -854,8 +843,8 @@
     <!-- Newsletter -->
     <section class="newsletter" id="newsletter">
         <div class="container">
-            <h2>Restez informé</h2>
-            <p>Inscrivez-vous à notre newsletter pour recevoir en priorité les annonces de nouvelles lames Hypnotarot, des offres exclusives et être informé des prochaines sorties.</p>
+            <h2>Soyez informé de l'ouverture !</h2>
+            <p>Inscrivez-vous à notre newsletter pour être informé en priorité de l'ouverture de notre boutique Hypnotarot, recevoir des offres de lancement exclusives et découvrir nos nouvelles créations en avant-première.</p>
             <form class="newsletter-form" id="notification-form">
                 <input type="email" placeholder="Votre adresse email" class="newsletter-input" required>
                 <button type="submit" class="newsletter-btn">S'inscrire</button>
@@ -946,7 +935,7 @@
                 <div class="confirmation-message" style="text-align: center;">
                     <i class="fas fa-check-circle" style="font-size: 3rem; margin-bottom: 1rem; color: var(--accent-color);"></i>
                     <h2>Merci pour votre inscription!</h2>
-                    <p>Vous recevrez désormais en priorité toutes les informations concernant les nouvelles lames Hypnotarot à l'adresse: <strong>${email}</strong></p>
+                    <p>Vous serez informé en priorité de l'ouverture de notre boutique Hypnotarot et bénéficierez d'offres de lancement exclusives à l'adresse: <strong>${email}</strong></p>
                     <button class="btn btn-primary" style="margin-top: 1.5rem;" id="back-btn">Retour au site</button>
                 </div>
             `;
@@ -966,8 +955,5 @@
             this.reset();
         });
     </script>
-    
-    <!-- Div Snipcart requis -->
-    <div id="snipcart" data-config-modal-style="side" data-currency="eur" data-customer-data-method="localstorage" hidden></div>
 </body>
 </html>
